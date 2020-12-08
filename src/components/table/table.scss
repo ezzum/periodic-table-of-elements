@@ -1,0 +1,12 @@
+$table-color: #E5E5DC;
+
+.table {
+    width: 95%;
+    height: 725px;
+    margin-bottom: 15px;
+    background-color: $table-color;
+}
+.table__row {
+    display: flex;
+    justify-content: flex-end;
+}

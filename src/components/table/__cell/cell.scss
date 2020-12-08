@@ -1,0 +1,18 @@
+$table__cell-color: #C4A35A;
+
+.table__cell {
+    width: 56px;
+    height: 65px;
+    background-color: $table__cell-color;
+    margin: 3px;
+}
+
+.table__column-number {
+    width: 56px;
+    margin: 3px;
+    text-align: center;
+}
+
+.hide {
+    opacity: 0;
+}

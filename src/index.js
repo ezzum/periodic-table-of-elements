@@ -1,12 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const App = () => {
-  return(
-    <div className='app'>
-      Table
-    </div>
-  );
-};
+import App from './components/app/app';
 
 ReactDOM.render(<App/>, document.getElementById('root'));
