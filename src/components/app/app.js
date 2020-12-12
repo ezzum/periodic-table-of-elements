@@ -14,7 +14,9 @@ class App extends Component {
     }
 
     componentDidMount() {
-      Axios.get('https://data-base-chem.herokuapp.com/elements')
+      const url = 'https://data-base-chem.herokuapp.com/elements';
+      
+      Axios.get(url)
         .then(response => {
           this.setState({db:{
             elements: [
