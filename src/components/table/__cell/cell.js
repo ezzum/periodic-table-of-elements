@@ -2,25 +2,36 @@ import React from 'react';
 
 import './cell.scss'
 
-const Cell = ({cells}) => {
+const Cell = ({elements}) => {
     
-    const elements = cells.map((cell) => {
+    const cells = elements.map((item) => {
 
-        let className = 'table__cell';
-
-        if (typeof(cell.symbol) === 'number') className = 'table__column-number';
-        if (cell.symbol === 'empty') className += ' hide';
+        let className = 'table__cell cell';
+        const style = {
+            gridArea: `${item.row}/${item.column}`
+        }
 
         return (
-            <div className={className}>
-                {cell.symbol}
+            <div key={item.number} className={className} style={style}>
+                <div className='cell__number'>
+                    {item.number}
+                </div>
+                <div className='cell__symbol'>
+                    {item.symbol}
+                </div>
+                <div className='cell__name'>
+                    {item.name}
+                </div>
+                <div className='cell__atomic-mass'>
+                    {item.atomicMass}
+                </div>
             </div>
         );
     })
 
     return (
-        <div className='table__row'>
-            {elements}
+        <div className='table__elements'>
+            {cells}
         </div>
     );
 };

@@ -1,18 +1,22 @@
 $table__cell-color: #C4A35A;
 
 .table__cell {
-    width: 56px;
-    height: 65px;
+    width: 60px;
+    height: 75px;
     background-color: $table__cell-color;
     margin: 3px;
 }
-
-.table__column-number {
-    width: 56px;
-    margin: 3px;
+.cell__symbol {
+    font-size: 14px;
     text-align: center;
 }
-
-.hide {
-    opacity: 0;
+.cell__number {
+    margin-top: 3px;
+}
+.cell__number,
+.cell__name,
+.cell__atomic-mass {
+    font-size: 12px;
+    text-align: end;
+    margin-right: 5px;
 }

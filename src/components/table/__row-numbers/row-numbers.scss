@@ -1,0 +1,9 @@
+.table__row-numbers {
+    grid-area: row-numbers;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.table__row-number {
+    text-align: center;
+}
