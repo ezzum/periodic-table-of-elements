@@ -8,28 +8,29 @@ class App extends Component {
 
     state = {
         db: {elements: []},
-        columnNumber: 18,
-        rowNumber: 7,
         incrementStep: 1,
     }
 
     componentDidMount() {
-      const url = 'https://data-base-chem.herokuapp.com/elements';
-      
+      const url = 'https://data-base-chem.herokuapp.com/table';
+
       Axios.get(url)
         .then(response => {
-          this.setState({db:{
-            elements: [
-              ...response.data
-            ]
-          }})
+          this.setState({
+            db:{
+              elements: [
+                ...response.data.elements
+              ],
+              columnsNumber: response.data.columnsNumber,
+              rowsNumber: response.data.rowsNumber,
+            }
+          })
         })
         .catch(error => console.log(error));
     }
 
     render() {
         const {elements} = this.state.db;
-
         return (
             <div className='app'>
                 <h1 className='app__title'>Периодическая таблица элементов</h1>
