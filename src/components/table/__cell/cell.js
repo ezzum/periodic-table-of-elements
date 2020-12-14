@@ -12,7 +12,7 @@ const Cell = ({elements}) => {
         }
 
         return (
-            <div key={item.number} className={className} style={style}>
+            <div key={item.symbol} className={className} style={style}>
                 <div className='cell__number'>
                     {item.number}
                 </div>
@@ -23,7 +23,7 @@ const Cell = ({elements}) => {
                     {item.name}
                 </div>
                 <div className='cell__atomic-mass'>
-                    {item.atomicMass}
+                    {item.atomicMass                }
                 </div>
             </div>
         );
