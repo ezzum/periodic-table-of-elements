@@ -1,23 +1,13 @@
 import React from 'react';
-
+import ArrayGen from '../../array-gen/array-gen';
 import './column-numbers.scss';
 
-const ColumnNumbers = () => {
-
-    const arr = new Array(18).fill(0);
-    const numbers = arr.map((item, idx) => {
-        return (
-            <div key={item + idx} className='table__column-number'>
-                {idx+1}
-            </div>
-        )
-    })
-
-    return (
+const ColumnNumbers = ({numbers}) => {
+    return ( 
         <div className='table__column-numbers'>
             {numbers}
         </div>
     );
 };
 
-export default ColumnNumbers;
+export default ArrayGen(ColumnNumbers);

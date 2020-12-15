@@ -8,7 +8,10 @@ class App extends Component {
 
     state = {
         db: {elements: []},
-        incrementStep: 1,
+        tableProps: {
+          columnsNumber: 18,
+          rowsNumber: 7
+        }
     }
 
     componentDidMount() {
@@ -31,10 +34,15 @@ class App extends Component {
 
     render() {
         const {elements} = this.state.db;
+        const {tableProps} = this.state;
+
         return (
             <div className='app'>
                 <h1 className='app__title'>Периодическая таблица элементов</h1>
-                <Table elements = {elements}/>
+                <Table 
+                  elements = {elements}
+                  tableProps = {tableProps}
+                />
             </div>
         );
     };

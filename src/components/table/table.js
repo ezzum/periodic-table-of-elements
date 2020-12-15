@@ -5,12 +5,12 @@ import RowNumbers from './__row-numbers/row-numbers';
 import Cell from './__cell/cell';
 import './table.scss';
 
-const Table = ({elements}) => {
+const Table = ({elements, tableProps}) => {
 
     return (
         <div className='table'>
-            <ColumnNumbers/>
-            <RowNumbers/>
+            <ColumnNumbers numberCount = {tableProps.columnsNumber}/>
+            <RowNumbers numberCount = {tableProps.rowsNumber}/>
             <Cell
                 elements={elements}
             />
