@@ -5,6 +5,10 @@ $table__cell-color: #C4A35A;
     height: 75px;
     background-color: $table__cell-color;
     margin: 3px;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 .cell__symbol {
     font-size: 14px;
