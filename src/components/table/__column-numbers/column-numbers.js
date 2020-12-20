@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrayGen from '../../array-gen/array-gen';
+import ArrayOfNumber from '../../array-of-number/array-of-number';
 import './column-numbers.scss';
 
 const ColumnNumbers = ({numbers}) => {
@@ -10,4 +10,4 @@ const ColumnNumbers = ({numbers}) => {
     );
 };
 
-export default ArrayGen(ColumnNumbers);
+export default ArrayOfNumber(ColumnNumbers, 'column');

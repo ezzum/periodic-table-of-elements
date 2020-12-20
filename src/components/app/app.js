@@ -1,18 +1,14 @@
 import React, {useState, useEffect} from 'react';
 
 import Table from '../table/table';
-import GetData from '../get-data/get-data';
+import GetElements from '../get-elements/get-elements';
 import './app.scss';
 const App = () => {
 
   const [elements, setElements] = useState([]);
-  const tableProps = {
-    columnsNumber: 18, 
-    rowsNumber: 7
-  }
 
   useEffect(() => {
-    GetData().then(elements => setElements(elements))
+    GetElements().then(elements => setElements(elements))
   },[])
 
   return (
@@ -20,11 +16,10 @@ const App = () => {
           <h1 className='app__title'>Периодическая таблица элементов</h1>
           <Table 
             elements = {elements}
-            tableProps = {tableProps}
+            tableProps = {{columns: 18, rows: 7}}
           />
       </div>
   );
-    
 }
 
 export default App;

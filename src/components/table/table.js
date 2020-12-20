@@ -9,11 +9,9 @@ const Table = ({elements, tableProps}) => {
 
     return (
         <div className='table'>
-            <ColumnNumbers numberCount = {tableProps.columnsNumber}/>
-            <RowNumbers numberCount = {tableProps.rowsNumber}/>
-            <Cell
-                elements={elements}
-            />
+            <ColumnNumbers numberCount = {tableProps.columns}/>
+            <RowNumbers numberCount = {tableProps.rows}/>
+            <Cell elements={elements}/>
         </div>
     );
 }

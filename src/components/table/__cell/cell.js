@@ -6,7 +6,7 @@ const Cell = ({elements}) => {
     
     const cells = elements.map((item) => {
 
-        let className = 'table__cell cell';
+        const className = 'table__cell cell';
         const style = {
             gridArea: `${item.row}/${item.column}`
         }

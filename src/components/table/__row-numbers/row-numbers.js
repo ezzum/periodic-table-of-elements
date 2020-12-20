@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrayGen from '../../array-gen/array-gen';
+import ArrayOfNumber from '../../array-of-number/array-of-number';
 import './row-numbers.scss';
 
 const RowNumbers = ({numbers}) => {
@@ -10,4 +10,4 @@ const RowNumbers = ({numbers}) => {
     );
 }
 
-export default ArrayGen(RowNumbers);
+export default ArrayOfNumber(RowNumbers, 'row');
