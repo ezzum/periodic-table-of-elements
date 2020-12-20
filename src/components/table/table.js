@@ -5,7 +5,7 @@ import RowNumbers from './__row-numbers/row-numbers';
 import Cell from './__cell/cell';
 import './table.scss';
 
-const Table = ({elements, tableProps}) => {
+function Table({elements, tableProps}) {
 
     return (
         <div className='table'>

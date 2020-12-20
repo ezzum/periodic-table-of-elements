@@ -2,7 +2,7 @@ import React from 'react';
 import ArrayOfNumber from '../../array-of-number/array-of-number';
 import './column-numbers.scss';
 
-const ColumnNumbers = ({numbers}) => {
+function ColumnNumbers({numbers}) {
     return ( 
         <div className='table__column-numbers'>
             {numbers}

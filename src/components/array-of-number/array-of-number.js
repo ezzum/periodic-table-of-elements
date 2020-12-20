@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const ArrayOfNumber = (WrappedComponent, className) => {
+function ArrayOfNumber(WrappedComponent, className) {
     return class extends Component {
 
         state = {

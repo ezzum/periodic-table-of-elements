@@ -2,7 +2,7 @@ import React from 'react';
 
 import './cell.scss'
 
-const Cell = ({elements}) => {
+function Cell({elements}) {
     
     const cells = elements.map((item) => {
 

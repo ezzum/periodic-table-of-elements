@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import Table from '../table/table';
 import GetElements from '../get-elements/get-elements';
 import './app.scss';
-const App = () => {
+function App() {
 
   const [elements, setElements] = useState([]);
 
