@@ -1,6 +1,9 @@
 $table__cell-color: #C4A35A;
+$table__cell-fonts-color: #000;
 
 .table__cell {
+    color: $table__cell-fonts-color;
+    text-decoration: none;
     width: 60px;
     height: 75px;
     background-color: $table__cell-color;

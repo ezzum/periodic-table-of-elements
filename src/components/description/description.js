@@ -1,9 +1,15 @@
 import React from 'react';
 
-function Description() {
+import ExitButton from '../exit-button/exit-button';
+
+function Description({activeElements}) {
     return (
         <div className='description'>
-            <h1>Info elements</h1>
+            <ExitButton/>
+            <h1>Описание</h1>
+            <p className='description__text'>
+                {activeElements}
+            </p>
         </div>
     )
 }

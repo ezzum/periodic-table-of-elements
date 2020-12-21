@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import './cell.scss'
 
-function Cell({elements}) {
+function Cell({elements, redirectInfo}) {
 
     const cells = elements.map((item) => {
 
@@ -12,7 +13,11 @@ function Cell({elements}) {
         }
 
         return (
-            <div key={item.symbol} className={className} style={style}>
+            <Link to='/description'
+                key={item.symbol} 
+                className={className} 
+                style={style}
+                onClick={() => {redirectInfo(item.name)}} >
                 <div className='cell__number'>
                     {item.number}
                 </div>
@@ -25,7 +30,7 @@ function Cell({elements}) {
                 <div className='cell__atomic-mass'>
                     {item.atomicMass                }
                 </div>
-            </div>
+            </Link>
         );
     })
 

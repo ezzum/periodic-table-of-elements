@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
 } from 'react-router-dom';
 
 import Table from '../table/table';
@@ -13,17 +13,22 @@ import './app.scss';
 function App() {
 
   const [elements, setElements] = useState([]);
+  const [activeElements, setActiveElements] = useState('');
 
   useEffect(() => {
     GetElements().then(elements => setElements(elements))
   },[])
+
+  function redirectInfo(name) {
+    setActiveElements(name)
+  }
 
   return (
     <div className='app'>
       <Router>
         <Switch>
           <Route path='/description'>
-            <Description/>
+            <Description activeElements={activeElements}/>
           </Route>
           <Route path='/'>
               <h1 className='app__title'>Периодическая таблица элементов</h1>
@@ -31,6 +36,7 @@ function App() {
                 <Table 
                   elements = {elements}
                   tableProps = {{columns: 18, rows: 7}}
+                  redirectInfo = {redirectInfo}
                 />
               </ErrorBoundary>
           </Route>
