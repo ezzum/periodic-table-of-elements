@@ -14,6 +14,7 @@ function App() {
 
   const [elements, setElements] = useState([]);
   const [activeElements, setActiveElements] = useState('');
+  const [previewElement, setPreviewElement] = useState('');
 
   useEffect(() => {
     GetElements().then(elements => setElements(elements))
@@ -21,6 +22,10 @@ function App() {
 
   function redirectInfo(name) {
     setActiveElements(name)
+  } 
+
+  function preview(item) {
+      setPreviewElement(item)
   }
 
   return (
@@ -37,6 +42,8 @@ function App() {
                   elements = {elements}
                   tableProps = {{columns: 18, rows: 7}}
                   redirectInfo = {redirectInfo}
+                  preview = {preview}
+                  previewElement = {previewElement}
                 />
               </ErrorBoundary>
           </Route>

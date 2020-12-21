@@ -6,7 +6,7 @@ import Cell from './__cell/cell';
 import Spinner from '../spinner/spinner';
 import './table.scss';
 
-function Table({elements, tableProps, redirectInfo}) {
+function Table({elements, tableProps, redirectInfo, preview, previewElement}) {
 
     let fragment = (
         <>
@@ -15,6 +15,8 @@ function Table({elements, tableProps, redirectInfo}) {
            <Cell 
                 elements={elements}
                 redirectInfo={redirectInfo}
+                preview={preview}
+                previewElement={previewElement}
            />
         </>
     )

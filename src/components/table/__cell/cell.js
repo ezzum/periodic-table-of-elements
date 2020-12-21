@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 
+import Preview from '../__preview/preview';
 import './cell.scss'
 
-function Cell({elements, redirectInfo}) {
+function Cell({elements, redirectInfo, preview, previewElement}) {
 
     const cells = elements.map((item) => {
 
@@ -17,6 +18,7 @@ function Cell({elements, redirectInfo}) {
                 key={item.symbol} 
                 className={className} 
                 style={style}
+                onMouseEnter={()=>{preview(item)}}
                 onClick={() => {redirectInfo(item.name)}} >
                 <div className='cell__number'>
                     {item.number}
@@ -36,6 +38,7 @@ function Cell({elements, redirectInfo}) {
 
     return (
         <div className='table__elements'>
+            <Preview previewElement={previewElement}/>
             {cells}
         </div>
     );
