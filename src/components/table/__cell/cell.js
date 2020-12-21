@@ -3,7 +3,7 @@ import React from 'react';
 import './cell.scss'
 
 function Cell({elements}) {
-    
+
     const cells = elements.map((item) => {
 
         const className = 'table__cell cell';

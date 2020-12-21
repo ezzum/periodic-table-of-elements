@@ -13,6 +13,8 @@ $table-color: #E5E5DC;
 }
 
 .table__elements {
+    width: 1222px;
+    height: 747px;
     grid-area: elements;
     display: grid;
     grid-template-rows: repeat(10, auto);
