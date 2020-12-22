@@ -12,6 +12,10 @@ $table__cell-fonts-color: #000;
     &:hover {
         transform: scale(1.1);
     }
+    &.hide {
+        opacity: 0.2;
+        pointer-events: none;
+    }
 }
 .cell__symbol {
     font-size: 14px;

@@ -12,6 +12,9 @@ function Preview({previewElement}) {
                 {previewElement.name}
             </div>
             <div>
+                {previewElement.group}
+            </div>
+            <div>
                 {previewElement.symbol}
             </div>
             <div>

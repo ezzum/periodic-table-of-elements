@@ -17,8 +17,29 @@ function App() {
   const [previewElement, setPreviewElement] = useState('');
 
   useEffect(() => {
-    GetElements().then(elements => setElements(elements))
+    GetElements().then(elements => setElements(elements
+        .map((item) => {
+          return {...item, ...{display: true}};
+        })))
   },[])
+
+  function filterElementsGroup(group) {
+    filterClear();
+    const filterElements = elements.map((item) => {
+      if(item.group === group) {
+        return {...item, ...{display: true}}
+      }
+      return {...item, ...{display: false}};
+    });
+    setElements(filterElements);
+  }
+
+  function filterClear() {
+    const filterClear = elements.map((item) => {
+      return {...item, ...{display: true}};
+    })
+    setElements(filterClear);
+  }
 
   function redirectInfo(name) {
     setActiveElements(name)
@@ -44,6 +65,7 @@ function App() {
                   redirectInfo = {redirectInfo}
                   preview = {preview}
                   previewElement = {previewElement}
+                  filterElementsGroup = {filterElementsGroup}
                 />
               </ErrorBoundary>
           </Route>

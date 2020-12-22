@@ -1,0 +1,15 @@
+.table__filter-button-metal {
+    grid-area: 1 / 8 / 2 / 12;
+}
+.table__filter-button-semi-metal {
+    grid-area: 2 / 8 / 3 / 12;
+}
+.table__filter-button-non-metal {
+    grid-area: 3 / 8 / 4 / 12;
+}
+
+.table__filter-button-metal,
+.table__filter-button-semi-metal,
+.table__filter-button-non-metal {
+    height: 50px;
+}

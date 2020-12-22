@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 import Preview from '../__preview/preview';
+import FilterButton from '../__filter-button/filter-button';
 import './cell.scss'
 
-function Cell({elements, redirectInfo, preview, previewElement}) {
+function Cell({elements, redirectInfo, preview, previewElement, filterElementsGroup}) {
 
     const cells = elements.map((item) => {
 
-        const className = 'table__cell cell';
+        let className = 'table__cell cell';
         const style = {
             gridArea: `${item.row}/${item.column}`
+        }
+
+        if (!item.display) {
+            className += ' hide'
         }
 
         return (
@@ -39,6 +44,18 @@ function Cell({elements, redirectInfo, preview, previewElement}) {
     return (
         <div className='table__elements'>
             <Preview previewElement={previewElement}/>
+            <FilterButton
+                filterElementsGroup={filterElementsGroup}
+                name={'Металлы'}
+                group={'metal'}/>
+            <FilterButton
+                filterElementsGroup={filterElementsGroup}
+                name={'Полуметаллы'}
+                group={'semi-metal'}/>
+            <FilterButton
+                filterElementsGroup={filterElementsGroup}
+                name={'Неметаллы'}
+                group={'non-metal'}/>
             {cells}
         </div>
     );
