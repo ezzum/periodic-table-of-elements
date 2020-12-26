@@ -1,12 +1,13 @@
 import React from 'react';
 import ArrayOfNumber from '../../array-of-number/array-of-number';
-import './row-numbers.scss';
+
+import {RowNumbersStyled} from './row-numbers-styled';
 
 function RowNumbers({numbers}) {
     return (
-        <div className='table__row-numbers'>
+        <RowNumbersStyled>
             {numbers}
-        </div>
+        </RowNumbersStyled>
     );
 }
 

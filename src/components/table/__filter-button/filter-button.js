@@ -1,14 +1,14 @@
 import React from 'react';
 
-import './filter-button.scss';
+import {Button} from './filter-button-styled.js';
 
-function FilterButton({filterElementsGroup, name, group}) {
+function FilterButton({filterElementsGroup, name, group, gridArea}) {
     return (
-        <button 
-            className={`table__filter-button-${group}`}
+        <Button 
+            gridArea = {gridArea}
             onClick={()=>{filterElementsGroup(group)}}>
             {name}
-        </button>
+        </Button>
     )
 }
 

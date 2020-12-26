@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './spinner.scss';
+import {SpinnerStyled} from './spinner-styled';
 
 function Spinner() {
     return (
-        <div className='table__spinner'></div>
+        <SpinnerStyled></SpinnerStyled>
     )
 }
 

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './preview.scss';
+import {PreviewStyled} from './preview-styled';
 
 function Preview({previewElement}) {
     return (
-        <div className='table__preview'>
+        <PreviewStyled>
             <div>
                 {previewElement.number}
             </div>
@@ -20,7 +20,7 @@ function Preview({previewElement}) {
             <div>
                 {previewElement.atomicMass}
             </div>
-        </div>
+        </PreviewStyled>
     )
 }
 

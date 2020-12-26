@@ -2,9 +2,10 @@ import React from 'react';
 
 import ColumnNumbers from './__column-numbers/column-numbers';
 import RowNumbers from './__row-numbers/row-numbers';
-import Cell from './__cell/cell';
+import ElementsGrid from './__elements/elements-grid';
 import Spinner from '../spinner/spinner';
-import './table.scss';
+
+import {TableStyled} from './table-styled';
 
 function Table({
     elements, 
@@ -18,7 +19,7 @@ function Table({
         <>
            <ColumnNumbers numberCount = {tableProps.columns}/>
            <RowNumbers numberCount = {tableProps.rows}/>
-           <Cell 
+           <ElementsGrid 
                 elements={elements}
                 redirectInfo={redirectInfo}
                 preview={preview}
@@ -33,9 +34,9 @@ function Table({
     }
 
     return (
-        <div className='table'>
+        <TableStyled>
             {fragment}
-        </div>
+        </TableStyled>
     );
 }
 
