@@ -9,7 +9,9 @@ import Table from '../table/table';
 import Description from '../description/description';
 import GetElements from '../get-elements/get-elements';
 import ErrorBoundary from '../error-boundary/error-boundary';
-import './app.scss';
+
+import {AppStyled} from './app-styled';
+
 function App() {
 
   const [elements, setElements] = useState([]);
@@ -50,7 +52,7 @@ function App() {
   }
 
   return (
-    <div className='app'>
+    <AppStyled>
       <Router>
         <Switch>
           <Route path='/description'>
@@ -71,7 +73,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </AppStyled>
   );
 }
 

@@ -1,10 +1,11 @@
-.table__row-numbers {
+import styled from 'styled-components';
+
+const RowNumbersStyled = styled.div `
     grid-area: row-numbers;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     margin: 0 10px;
-}
-.table__row-number {
-    text-align: center;
-}
+`;
+
+export {RowNumbersStyled};
