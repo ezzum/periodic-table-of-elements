@@ -12,7 +12,7 @@ import {
 import Preview from '../__preview/preview';
 import FilterButton from '../__filter-button/filter-button';
 
-function ElementsGrid({elements, redirectInfo, preview, previewElement, filterElementsGroup}) {
+function ElementsGrid({elements, redirectInfo, preview, previewElement, filterElementsGroup, activeButton}) {
 
     const cells = elements.map((item) => {
         return (
@@ -34,19 +34,22 @@ function ElementsGrid({elements, redirectInfo, preview, previewElement, filterEl
             <Preview previewElement={previewElement}/>
             <FilterButton
                 filterElementsGroup={filterElementsGroup}
-                gridArea={'1/8/2/12'}
+                gridArea={'1/8/2/13'}
                 name={'Металлы'}
-                group={'metal'}/>
+                group={'metal'}
+                isActive={activeButton.metal}/>
             <FilterButton
                 filterElementsGroup={filterElementsGroup}
-                gridArea={'2/8/3/12'}
+                gridArea={'2/8/3/13'}
                 name={'Полуметаллы'}
-                group={'semi-metal'}/>
+                group={'semiMetal'}
+                isActive={activeButton.semiMetal}/>
             <FilterButton
                 filterElementsGroup={filterElementsGroup}
-                gridArea={'3/8/4/12'}
+                gridArea={'3/8/4/13'}
                 name={'Неметаллы'}
-                group={'non-metal'}/>
+                group={'nonMetal'}
+                isActive={activeButton.nonMetal}/>
             {cells}
         </ElementsStyled>
     );
