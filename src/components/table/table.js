@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
+import {Context} from '../app/context';
 import ColumnNumbers from './__column-numbers/column-numbers';
 import RowNumbers from './__row-numbers/row-numbers';
 import ElementsGrid from './__elements/elements-grid';
@@ -7,8 +8,7 @@ import Spinner from '../spinner/spinner';
 
 import {TableStyled} from './table-styled';
 
-function Table({
-    elements, 
+function Table({ 
     tableProps, 
     redirectInfo, 
     preview, 
@@ -16,12 +16,13 @@ function Table({
     filterElementsGroup,
     activeButton}) {
 
+    const {elements} = useContext(Context);    
+
     let fragment = (
         <>
            <ColumnNumbers numberCount = {tableProps.columns}/>
            <RowNumbers numberCount = {tableProps.rows}/>
-           <ElementsGrid 
-                elements={elements}
+           <ElementsGrid
                 redirectInfo={redirectInfo}
                 preview={preview}
                 previewElement={previewElement}

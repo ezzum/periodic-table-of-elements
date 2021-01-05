@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 
+import {Context} from './context';
 import Table from '../table/table';
 import Description from '../description/description';
 import GetElements from '../get-elements/get-elements';
@@ -52,29 +53,38 @@ function App() {
   }
 
   return (
-    <AppStyled>
-      <Router>
-        <Switch>
-          <Route path='/description'>
-            <Description activeElements={activeElements}/>
-          </Route>
-          <Route path='/'>
-              <h1 className='app__title'>Периодическая таблица элементов</h1>
-              <ErrorBoundary>
-                <Table 
-                  elements = {elements}
-                  tableProps = {{columns: 18, rows: 7}}
-                  redirectInfo = {redirectInfo}
-                  preview = {preview}
-                  previewElement = {previewElement}
-                  filterElementsGroup = {filterElementsGroup}
-                  activeButton = {activeButton}
-                />
-              </ErrorBoundary>
-          </Route>
-        </Switch>
-      </Router>
-    </AppStyled>
+    <Context.Provider value = {{
+      elements,
+      redirectInfo,
+      preview,
+      previewElement,
+      filterElementsGroup,
+      activeButton
+    }}>
+      <AppStyled>
+        <Router>
+          <Switch>
+            <Route path='/description'>
+              <Description activeElements={activeElements}/>
+            </Route>
+            <Route path='/'>
+                <h1 className='app__title'>Периодическая таблица элементов</h1>
+                <ErrorBoundary>
+                  <Table 
+                    elements = {elements}
+                    tableProps = {{columns: 18, rows: 7}}
+                    redirectInfo = {redirectInfo}
+                    preview = {preview}
+                    previewElement = {previewElement}
+                    filterElementsGroup = {filterElementsGroup}
+                    activeButton = {activeButton}
+                  />
+                </ErrorBoundary>
+            </Route>
+          </Switch>
+        </Router>
+      </AppStyled>
+    </Context.Provider>
   );
 }
 

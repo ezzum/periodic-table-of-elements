@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 
+import {Context} from '../../app/context';
 import {
     ElementsStyled, 
     CellStyled,
@@ -12,7 +13,9 @@ import {
 import Preview from '../__preview/preview';
 import FilterButton from '../__filter-button/filter-button';
 
-function ElementsGrid({elements, redirectInfo, preview, previewElement, filterElementsGroup, activeButton}) {
+function ElementsGrid({ redirectInfo, preview, previewElement, filterElementsGroup, activeButton}) {
+
+    const {elements} = useContext(Context);
 
     const cells = elements.map((item) => {
         return (
