@@ -41,11 +41,6 @@ function App() {
 
     const newActiveButton = {[group]: !activeButton[group]};
     setActiveButton({...activeButton, ...newActiveButton});
-
-    // const newElements = elements.map((item) => {
-    //   return {...item, ...{active: activeButton[item.group]}}
-    // });
-    // setElements(newElements);
   }
 
   function redirectInfo(name) {
