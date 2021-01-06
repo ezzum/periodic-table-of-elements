@@ -8,27 +8,15 @@ import Spinner from '../spinner/spinner';
 
 import {TableStyled} from './table-styled';
 
-function Table({ 
-    tableProps, 
-    redirectInfo, 
-    preview, 
-    previewElement, 
-    filterElementsGroup,
-    activeButton}) {
+function Table() {
 
-    const {elements} = useContext(Context);    
+    const {elements, tableProps} = useContext(Context);    
 
     let fragment = (
         <>
            <ColumnNumbers numberCount = {tableProps.columns}/>
            <RowNumbers numberCount = {tableProps.rows}/>
-           <ElementsGrid
-                redirectInfo={redirectInfo}
-                preview={preview}
-                previewElement={previewElement}
-                filterElementsGroup={filterElementsGroup}
-                activeButton={activeButton}
-           />
+           <ElementsGrid/>
         </>
     )
 

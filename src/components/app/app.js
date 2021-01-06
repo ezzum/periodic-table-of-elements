@@ -59,7 +59,8 @@ function App() {
       preview,
       previewElement,
       filterElementsGroup,
-      activeButton
+      activeButton,
+      tableProps: {columns: 18, rows: 7}
     }}>
       <AppStyled>
         <Router>
@@ -70,15 +71,7 @@ function App() {
             <Route path='/'>
                 <h1 className='app__title'>Периодическая таблица элементов</h1>
                 <ErrorBoundary>
-                  <Table 
-                    elements = {elements}
-                    tableProps = {{columns: 18, rows: 7}}
-                    redirectInfo = {redirectInfo}
-                    preview = {preview}
-                    previewElement = {previewElement}
-                    filterElementsGroup = {filterElementsGroup}
-                    activeButton = {activeButton}
-                  />
+                  <Table/>
                 </ErrorBoundary>
             </Route>
           </Switch>
