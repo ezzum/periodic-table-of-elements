@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 
+import {Context} from '../../app/context';
 import {
     ElementsStyled, 
     CellStyled,
@@ -12,7 +13,9 @@ import {
 import Preview from '../__preview/preview';
 import FilterButton from '../__filter-button/filter-button';
 
-function ElementsGrid({elements, redirectInfo, preview, previewElement, filterElementsGroup, activeButton}) {
+function ElementsGrid() {
+
+    const {elements, preview, redirectInfo, activeButton} = useContext(Context);
 
     const cells = elements.map((item) => {
         return (
@@ -31,21 +34,18 @@ function ElementsGrid({elements, redirectInfo, preview, previewElement, filterEl
 
     return (
         <ElementsStyled>
-            <Preview previewElement={previewElement}/>
+            <Preview/>
             <FilterButton
-                filterElementsGroup={filterElementsGroup}
                 gridArea={'1/8/2/13'}
                 name={'Металлы'}
                 group={'metal'}
                 isActive={activeButton.metal}/>
             <FilterButton
-                filterElementsGroup={filterElementsGroup}
                 gridArea={'2/8/3/13'}
                 name={'Полуметаллы'}
                 group={'semiMetal'}
                 isActive={activeButton.semiMetal}/>
             <FilterButton
-                filterElementsGroup={filterElementsGroup}
                 gridArea={'3/8/4/13'}
                 name={'Неметаллы'}
                 group={'nonMetal'}

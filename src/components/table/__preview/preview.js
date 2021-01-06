@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 
+import {Context} from '../../app/context';
 import {PreviewStyled} from './preview-styled';
 
-function Preview({previewElement}) {
+function Preview() {
+    
+    const {previewElement} = useContext(Context);
+    
     return (
         <PreviewStyled>
             <div>
