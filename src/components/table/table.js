@@ -13,7 +13,8 @@ function Table({
     redirectInfo, 
     preview, 
     previewElement, 
-    filterElementsGroup}) {
+    filterElementsGroup,
+    activeButton}) {
 
     let fragment = (
         <>
@@ -25,6 +26,7 @@ function Table({
                 preview={preview}
                 previewElement={previewElement}
                 filterElementsGroup={filterElementsGroup}
+                activeButton={activeButton}
            />
         </>
     )

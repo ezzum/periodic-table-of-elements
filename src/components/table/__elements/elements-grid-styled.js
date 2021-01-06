@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const cellFontsColor = '#000';
 const cellColor = '#C4A35A';
+const activeCellColor = '#4f7f80';
 
 const ElementsStyled = styled.div `
     width: 1222px;
@@ -15,8 +16,7 @@ const ElementsStyled = styled.div `
 
 const CellStyled = styled.div.attrs(props => ({
     style: {
-        opacity: props.item.display ? 1 : 0.2,
-        pointerEvents: props.item.display ? 'auto' : 'none',
+        backgroundColor: props.item.active ? activeCellColor : cellColor,
     },
 })) `
     color: ${cellFontsColor};

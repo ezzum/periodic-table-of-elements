@@ -17,30 +17,30 @@ function App() {
   const [elements, setElements] = useState([]);
   const [activeElements, setActiveElements] = useState('');
   const [previewElement, setPreviewElement] = useState('');
+  const [activeButton, setActiveButton] = useState({
+    metal: false,
+    semiMetal: false,
+    nonMetal: false
+  });
 
   useEffect(() => {
     GetElements().then(elements => setElements(elements
         .map((item) => {
-          return {...item, ...{display: true}};
+          return {...item, ...{active: false}};
         })))
   },[])
 
   function filterElementsGroup(group) {
-    filterClear();
     const filterElements = elements.map((item) => {
       if(item.group === group) {
-        return {...item, ...{display: true}}
+        return {...item, ...{active: !item.active}}
       }
-      return {...item, ...{display: false}};
+      return {...item};
     });
     setElements(filterElements);
-  }
 
-  function filterClear() {
-    const filterClear = elements.map((item) => {
-      return {...item, ...{display: true}};
-    })
-    setElements(filterClear);
+    const newActiveButton = {[group]: !activeButton[group]};
+    setActiveButton({...activeButton, ...newActiveButton});
   }
 
   function redirectInfo(name) {
@@ -68,6 +68,7 @@ function App() {
                   preview = {preview}
                   previewElement = {previewElement}
                   filterElementsGroup = {filterElementsGroup}
+                  activeButton = {activeButton}
                 />
               </ErrorBoundary>
           </Route>
