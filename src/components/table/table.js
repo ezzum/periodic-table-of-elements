@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import {connect} from 'react-redux';
 
-import {Context} from '../app/context';
 import ColumnNumbers from './__column-numbers/column-numbers';
 import RowNumbers from './__row-numbers/row-numbers';
 import ElementsGrid from './__elements/elements-grid';
@@ -8,9 +8,7 @@ import Spinner from '../spinner/spinner';
 
 import {TableStyled} from './table-styled';
 
-function Table() {
-
-    const {elements, tableProps} = useContext(Context);    
+function Table({elements, tableProps}) { 
 
     let fragment = (
         <>
@@ -31,4 +29,11 @@ function Table() {
     );
 }
 
-export default Table;
+function mapStateToProps(state) {
+    return {
+        elements: state.elements,
+        tableProps: state.tableProps
+    }
+}
+
+export default connect(mapStateToProps)(Table);

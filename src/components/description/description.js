@@ -1,17 +1,24 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import ExitButton from '../exit-button/exit-button';
 
-function Description({activeElements}) {
+function Description({activeElement}) {
     return (
         <div className='description'>
             <ExitButton/>
             <h1>Описание</h1>
             <p className='description__text'>
-                {activeElements}
+                {activeElement}
             </p>
         </div>
     )
 }
 
-export default Description;
+function mapStateToProps(state) {
+    return {
+        activeElement: state.activeElement
+    }
+}
+
+export default connect(mapStateToProps)(Description);

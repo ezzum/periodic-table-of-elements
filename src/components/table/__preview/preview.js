@@ -1,11 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import {connect} from 'react-redux';
 
-import {Context} from '../../app/context';
 import {PreviewStyled} from './preview-styled';
 
-function Preview() {
-    
-    const {previewElement} = useContext(Context);
+function Preview({previewElement}) {
     
     return (
         <PreviewStyled>
@@ -28,4 +26,10 @@ function Preview() {
     )
 }
 
-export default Preview;
+function mapStateToProps(state) {
+    return {
+        previewElement: state.previewElement
+    }
+}
+
+export default connect(mapStateToProps)(Preview);
