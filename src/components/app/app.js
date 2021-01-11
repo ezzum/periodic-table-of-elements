@@ -1,84 +1,41 @@
-import React, {useState, useEffect} from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import React, {useEffect} from 'react';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {connect} from 'react-redux';
 
-import {Context} from './context';
+import {ElementsLoad} from './redux/actions';
 import Table from '../table/table';
 import Description from '../description/description';
-import GetElements from '../get-elements/get-elements';
 import ErrorBoundary from '../error-boundary/error-boundary';
 
 import {AppStyled} from './app-styled';
 
-function App() {
-
-  const [elements, setElements] = useState([]);
-  const [activeElements, setActiveElements] = useState('');
-  const [previewElement, setPreviewElement] = useState('');
-  const [activeButton, setActiveButton] = useState({
-    metal: false,
-    semiMetal: false,
-    nonMetal: false
-  });
+function App({ElementsLoad}) {
 
   useEffect(() => {
-    GetElements().then(elements => setElements(elements
-        .map((item) => {
-          return {...item, ...{active: false}};
-        })))
-  },[])
-
-  function filterElementsGroup(group) {
-    const filterElements = elements.map((item) => {
-      if(item.group === group) {
-        return {...item, ...{active: !item.active}}
-      }
-      return {...item};
-    });
-    setElements(filterElements);
-
-    const newActiveButton = {[group]: !activeButton[group]};
-    setActiveButton({...activeButton, ...newActiveButton});
-  }
-
-  function redirectInfo(name) {
-    setActiveElements(name)
-  } 
-
-  function preview(item) {
-      setPreviewElement(item)
-  }
+    ElementsLoad()
+  })
 
   return (
-    <Context.Provider value = {{
-      elements,
-      redirectInfo,
-      preview,
-      previewElement,
-      filterElementsGroup,
-      activeButton,
-      tableProps: {columns: 18, rows: 7}
-    }}>
-      <AppStyled>
-        <Router>
-          <Switch>
-            <Route path='/description'>
-              <Description activeElements={activeElements}/>
-            </Route>
-            <Route path='/'>
-                <h1 className='app__title'>Периодическая таблица элементов</h1>
-                <ErrorBoundary>
-                  <Table/>
-                </ErrorBoundary>
-            </Route>
-          </Switch>
-        </Router>
-      </AppStyled>
-    </Context.Provider>
+    <AppStyled>
+      <Router>
+        <Switch>
+          <Route path='/description'>
+            <Description/>
+          </Route>
+          <Route path='/'>
+              <h1 className='app__title'>Периодическая таблица элементов</h1>
+              <ErrorBoundary>
+                <Table/>
+              </ErrorBoundary>
+          </Route>
+        </Switch>
+      </Router>
+    </AppStyled>
   );
 }
 
-export default App;
+const mapDispatchToProps = {
+  ElementsLoad
+}
+
+export default connect(null, mapDispatchToProps)(App);
