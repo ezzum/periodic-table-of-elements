@@ -1,17 +1,29 @@
 import React from 'react';
 
+import {FilterButtonClick} from '../../app/redux/actions';
+import {connect} from 'react-redux';
 import {Button} from './filter-button-styled.js';
 
-function FilterButton({name, group, gridArea, isActive}) {
-    
+function FilterButton({name, group, gridArea, isActive, FilterButtonClick}) {
     
     return (
         <Button 
-            isActive = {isActive}
-            gridArea = {gridArea}>
+            isActive = {isActive[group]} 
+            gridArea = {gridArea}
+            onClick = {() => FilterButtonClick(group)}> 
             {name}
         </Button>
     )
 }
 
-export default FilterButton;
+function mapStateToProps(state) {
+    return {
+        isActive: state.activeButton
+    }
+}
+
+const mapDispatchToProps = {
+    FilterButtonClick
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterButton);

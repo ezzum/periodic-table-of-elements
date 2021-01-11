@@ -38,18 +38,15 @@ function ElementsGrid({elements, ElementMouseEnter, ElementClick}) {
             <FilterButton
                 gridArea={'1/8/2/13'}
                 name={'Металлы'}
-                group={'metal'}
-                isActive={''}/>
+                group={'metal'}/>
             <FilterButton
                 gridArea={'2/8/3/13'}
                 name={'Полуметаллы'}
-                group={'semiMetal'}
-                isActive={''}/>
+                group={'semiMetal'}/>
             <FilterButton
                 gridArea={'3/8/4/13'}
                 name={'Неметаллы'}
-                group={'nonMetal'}
-                isActive={''}/>
+                group={'nonMetal'}/>
             {cells}
         </ElementsStyled>
     );
@@ -63,7 +60,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
     ElementMouseEnter,
-    ElementClick
+    ElementClick,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ElementsGrid);
