@@ -1,9 +1,30 @@
-import { ELEMENTS_LOAD, ELEMENT_CLICK, ELEMENT_MOUSE_ENTER, FILTER_BUTTON_CLICK } from "./types";
+import axios from "axios";
+import { ELEMENTS_LOAD, ELEMENT_CLICK, ELEMENT_MOUSE_ENTER, FILTER_BUTTON_CLICK, HIDE_SPINNER, SHOW_SPINNER } from "./types";
 
-export function ElementsLoad(value) {
+export function showSpinner() {
     return {
-        type: ELEMENTS_LOAD,
-        value
+        type : SHOW_SPINNER
+    }
+}
+
+export function hideSpinner() {
+    return {
+        type : HIDE_SPINNER
+    }
+}
+
+export function ElementsLoad() {
+    return async dispatch => {
+        try {
+            dispatch(showSpinner());
+            const url = 'https://data-base-chem.herokuapp.com/table';
+            const response = await axios.get(url);
+            dispatch({type : ELEMENTS_LOAD, value : response.data.elements});
+            dispatch(hideSpinner());
+        } catch (error) {
+            return null;
+        }
+        
     }
 }
 

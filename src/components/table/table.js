@@ -8,7 +8,7 @@ import Spinner from '../spinner/spinner';
 
 import {TableStyled} from './table-styled';
 
-function Table({elements, tableProps}) { 
+function Table({tableProps, loading}) { 
 
     let fragment = (
         <>
@@ -18,7 +18,7 @@ function Table({elements, tableProps}) {
         </>
     )
 
-    if(!elements.length) {
+    if(loading) {
         fragment = <Spinner/>
     }
 
@@ -31,8 +31,8 @@ function Table({elements, tableProps}) {
 
 function mapStateToProps(state) {
     return {
-        elements: state.elements,
-        tableProps: state.tableProps
+        tableProps: state.tableProps,
+        loading: state.loading
     }
 }
 
