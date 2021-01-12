@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {FilterButtonClick} from '../../app/redux/actions';
+import {FilterButtonClick} from '../../../redux/actions';
 import {connect} from 'react-redux';
 import {Button} from './filter-button-styled.js';
 

@@ -12,7 +12,7 @@ import {
 } from './elements-grid-styled';
 import Preview from '../__preview/preview';
 import FilterButton from '../__filter-button/filter-button';
-import {ElementMouseEnter, ElementClick} from '../../app/redux/actions';
+import {ElementMouseEnter, ElementClick} from '../../../redux/actions';
 
 function ElementsGrid({elements, ElementMouseEnter, ElementClick}) {
 

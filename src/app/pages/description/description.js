@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import ExitButton from '../exit-button/exit-button';
+import ExitButton from '../../exit-button/exit-button';
 
 function Description({activeElement}) {
     return (
