@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import ColumnNumbers from './__column-numbers/column-numbers';
 import RowNumbers from './__row-numbers/row-numbers';
 import ElementsGrid from './__elements/elements-grid';
-import Spinner from '../spinner/spinner';
+import Spinner from '../../spinner/spinner';
 
 import {TableStyled} from './table-styled';
 

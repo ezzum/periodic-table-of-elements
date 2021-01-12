@@ -3,9 +3,9 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {ElementsLoad} from './redux/actions';
-import Table from '../table/table';
-import Description from '../description/description';
-import ErrorBoundary from '../error-boundary/error-boundary';
+import Table from './pages/table/table';
+import Description from './pages/description/description';
+import ErrorBoundary from './error-boundary/error-boundary';
 
 import {AppStyled} from './app-styled';
 
