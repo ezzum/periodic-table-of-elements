@@ -2,13 +2,13 @@ import styled, { keyframes } from 'styled-components';
 
 const SpinnerColor = '#525252';
 
-const rotate = keyframes `
+const rotate = keyframes`
   100% {
     transform: rotate(360deg);
   }
 `;
 
-const SpinnerStyled = styled.div `
+const SpinnerStyled = styled.div`
   animation: ${rotate} 1s linear infinite;
   border: 7px solid ${SpinnerColor};
   border-top-color: transparent;
@@ -20,5 +20,5 @@ const SpinnerStyled = styled.div `
   width: 60px;
   height: 60px;
 `;
-  
-export {SpinnerStyled};
+
+export { SpinnerStyled };
