@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
@@ -14,7 +14,6 @@ describe('Description tests', () => {
 
   beforeEach(() => {
     store = mockStore(initialState);
-    // container = shallow(<Description store={store} />);
     container = mount(
       <Provider store={store}>
         <Description />
