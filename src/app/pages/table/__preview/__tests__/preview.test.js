@@ -23,7 +23,6 @@ describe('Preview tests', () => {
         <Preview />
       </Provider>
     );
-    console.log(wrapper.debug());
   });
 
   it('snapshot test', () => {
