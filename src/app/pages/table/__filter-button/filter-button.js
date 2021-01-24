@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { FilterButtonClick } from '../../../redux/actions';
-import { connect } from 'react-redux';
-import { Button } from './filter-button-styled.js';
+import { FilterButtonClick } from "../../../redux/actions";
+import { connect } from "react-redux";
+import { Button } from "./filter-button-styled.js";
 
-function FilterButton({ name, group, gridArea, isActive, FilterButtonClick }) {
+function FilterButton({ name, group, grid, isActive, FilterButtonClick }) {
   return (
     <Button
       isActive={isActive[group]}
-      gridArea={gridArea}
+      gridArea={grid}
       onClick={() => FilterButtonClick(group)}
     >
       {name}
