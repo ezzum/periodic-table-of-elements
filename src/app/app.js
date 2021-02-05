@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
-import { ElementsLoad } from './redux/actions';
-import Table from './pages/table/table';
-import Description from './pages/description/description';
-import ErrorBoundary from './error-boundary/error-boundary';
+import { ElementsLoad } from "./redux/actions";
+import Table from "./pages/table/table";
+import Description from "./pages/description/description";
+import ErrorBoundary from "./error-boundary/error-boundary";
 
-import { AppStyled } from './app-styled';
+import { AppStyled } from "./app-styled";
 
 function App({ ElementsLoad }) {
   useEffect(() => {
