@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 import {
   ELEMENTS_LOAD,
   ELEMENT_CLICK,
@@ -6,7 +6,7 @@ import {
   FILTER_BUTTON_CLICK,
   HIDE_SPINNER,
   SHOW_SPINNER,
-} from './types';
+} from "./types";
 
 export function showSpinner() {
   return {
@@ -24,7 +24,7 @@ export function ElementsLoad() {
   return async (dispatch) => {
     try {
       dispatch(showSpinner());
-      const url = 'https://data-base-chem.herokuapp.com/table';
+      const url = "https://data-base-chem.herokuapp.com/table";
       const response = await axios.get(url);
       dispatch({ type: ELEMENTS_LOAD, value: response.data.elements });
       dispatch(hideSpinner());
