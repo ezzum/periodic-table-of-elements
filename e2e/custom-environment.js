@@ -21,8 +21,8 @@ class CustomEnvironment extends NodeEnvironment {
   }
 
   async teardown() {
-    // await this.global.browser.close();
-    // await super.teardown();
+    await this.global.browser.close();
+    await super.teardown();
   }
 }
 
