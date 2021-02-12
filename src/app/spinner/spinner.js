@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { SpinnerStyled } from './spinner-styled';
+import { SpinnerStyled } from "./spinner-styled";
 
 function Spinner() {
   return <SpinnerStyled></SpinnerStyled>;

@@ -3,11 +3,13 @@ import React from "react";
 import store from "../../../redux/store";
 import { mount } from "enzyme";
 import configureStore from "redux-mock-store";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Table from "../table";
 import { initialState } from "../../../redux/initialState";
 
-let wrapper;
+let wrapper, fakeStore;
+const mockStore = configureStore();
 
 describe("Table real store", () => {
   beforeEach(() => {
@@ -60,58 +62,8 @@ describe("Table real store", () => {
 });
 
 describe("Table mock store loading: true", () => {
-  const initStore = {
-    elements: [
-      {
-        symbol: "H",
-        number: 1,
-        name: "водород",
-        atomicMass: 1.007,
-        column: 1,
-        row: 1,
-        group: "nonMetal",
-      },
-      {
-        symbol: "He",
-        number: 2,
-        name: "гелий",
-        atomicMass: 4.002,
-        column: 18,
-        row: 1,
-        group: "nonMetal",
-      },
-      {
-        symbol: "Li",
-        number: 3,
-        name: "литий",
-        atomicMass: 6.941,
-        column: 1,
-        row: 2,
-        group: "metal",
-      },
-    ],
-    activeElement: "",
-    previewElement: {
-      name: "Наведите курсор",
-      group: "на любой",
-      symbol: "элемент",
-    },
-    tableProps: {
-      columns: 18,
-      rows: 7,
-    },
-    activeButton: {
-      metal: false,
-      semiMetal: false,
-      nonMetal: false,
-    },
-    loading: true,
-  };
-  let fakeStore;
-  const mockStore = configureStore();
-
   beforeEach(() => {
-    fakeStore = mockStore({ ...initStore, loading: true });
+    fakeStore = mockStore({ ...initialState, loading: true });
     wrapper = mount(
       <Provider store={fakeStore}>
         <Table />
@@ -140,5 +92,56 @@ describe("Table mock store loading: true", () => {
   });
   it("no Row number", () => {
     expect(wrapper.find(".table__row-number")).toHaveLength(0);
+  });
+});
+
+describe("Table mock store loading: false", () => {
+  const fakeElements = [
+    {
+      symbol: "H",
+      number: 1,
+      name: "водород",
+      atomicMass: 1.007,
+      column: 1,
+      row: 1,
+      group: "nonMetal",
+    },
+    {
+      symbol: "He",
+      number: 2,
+      name: "гелий",
+      atomicMass: 4.002,
+      column: 18,
+      row: 1,
+      group: "nonMetal",
+    },
+    {
+      symbol: "Li",
+      number: 3,
+      name: "литий",
+      atomicMass: 6.941,
+      column: 1,
+      row: 2,
+      group: "metal",
+    },
+  ];
+
+  beforeEach(() => {
+    fakeStore = mockStore({ ...initialState, elements: fakeElements });
+    wrapper = mount(
+      <Provider store={fakeStore}>
+        <Router>
+          <Switch>
+            <Route>
+              <Table />
+            </Route>
+          </Switch>
+        </Router>
+      </Provider>
+    );
+  });
+
+  it("Elements rendering", () => {
+    expect(wrapper.find("a")).toHaveLength(fakeElements.length);
   });
 });
