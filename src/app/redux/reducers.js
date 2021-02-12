@@ -5,8 +5,9 @@ import {
   FILTER_BUTTON_CLICK,
   HIDE_SPINNER,
   SHOW_SPINNER,
-} from './types';
-import { initialState } from './initialState';
+  SEARCH_ELEMENT,
+} from "./types";
+import { initialState } from "./initialState";
 
 export function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -52,6 +53,23 @@ export function rootReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+      };
+    case SEARCH_ELEMENT:
+      const searchedElements = state.elements.map((item) => {
+        if (action.value === "") {
+          return { ...item, active: false };
+        }
+        if (item.name.includes(action.value)) {
+          return { ...item, active: true };
+        }
+        if (!item.name.includes(action.value)) {
+          return { ...item, active: false };
+        }
+        return { ...item };
+      });
+      return {
+        ...state,
+        elements: [...searchedElements],
       };
     default:
       return state;

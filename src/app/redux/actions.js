@@ -6,6 +6,7 @@ import {
   FILTER_BUTTON_CLICK,
   HIDE_SPINNER,
   SHOW_SPINNER,
+  SEARCH_ELEMENT,
 } from "./types";
 
 export function showSpinner() {
@@ -51,6 +52,13 @@ export function ElementClick(value) {
 export function FilterButtonClick(value) {
   return {
     type: FILTER_BUTTON_CLICK,
+    value,
+  };
+}
+
+export function SearchElement(value) {
+  return {
+    type: SEARCH_ELEMENT,
     value,
   };
 }
