@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 function ArrayOfNumber(WrappedComponent, className) {
   return class extends Component {
@@ -8,7 +8,7 @@ function ArrayOfNumber(WrappedComponent, className) {
 
     componentDidMount() {
       const numbers = new Array(this.props.numberCount)
-        .fill('item')
+        .fill("item")
         .map((_item, idx) => ++idx)
         .map((number) => {
           return (

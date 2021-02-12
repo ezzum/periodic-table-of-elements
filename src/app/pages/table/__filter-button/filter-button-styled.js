@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ButtonColor = '#C4A35A';
 const ActiveButtonColor = '#4f7f80';
 
-const Button = styled.div`
+const Button = styled.button`
   background-color: ${(props) =>
     props.isActive ? ActiveButtonColor : ButtonColor};
   margin: 3px;

@@ -1,10 +1,10 @@
 export const initialState = {
   elements: [],
-  activeElement: '',
+  activeElement: "",
   previewElement: {
-    name: 'Наведите курсор',
-    group: 'на любой',
-    symbol: 'элемент',
+    name: "Наведите курсор",
+    group: "на любой",
+    symbol: "элемент",
   },
   tableProps: {
     columns: 18,

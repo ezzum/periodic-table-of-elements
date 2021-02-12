@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { PreviewStyled } from './preview-styled';
+import { PreviewStyled } from "./preview-styled";
 
 function Preview({ previewElement }) {
   return (
-    <PreviewStyled>
+    <PreviewStyled className={"preview"}>
       <div>{previewElement.number}</div>
       <div>{previewElement.name}</div>
       <div>{previewElement.group}</div>
