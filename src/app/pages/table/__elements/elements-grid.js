@@ -13,6 +13,7 @@ import {
 import Preview from "../__preview/preview";
 import FilterButton from "../__filter-button/filter-button";
 import { ElementMouseEnter, ElementClick } from "../../../redux/actions";
+import SearchInput from "../search-input/search-input";
 
 function ElementsGrid({ elements, ElementMouseEnter, ElementClick }) {
   const cells = elements.map((item) => {
@@ -35,6 +36,7 @@ function ElementsGrid({ elements, ElementMouseEnter, ElementClick }) {
 
   return (
     <ElementsStyled>
+      <SearchInput grid={"1/13/2/18"} />
       <Preview />
       <FilterButton grid={"1/8/2/13"} name={"Металлы"} group={"metal"} />
       <FilterButton
