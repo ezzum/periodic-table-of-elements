@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './app/app';
-import { Provider } from 'react-redux';
-import store from './app/redux/store';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./app/app";
+import { Provider } from "react-redux";
+import store from "./app/redux/store";
 
 const app = (
   <Provider store={store}>
@@ -10,4 +10,4 @@ const app = (
   </Provider>
 );
 
-ReactDOM.render(app, document.getElementById('root'));
+ReactDOM.hydrate(app, document.getElementById("root"));
