@@ -3,7 +3,11 @@ import ArrayOfNumber from '../../../array-of-number/array-of-number';
 
 import { RowNumbersStyled } from './row-numbers-styled';
 
-function RowNumbers({ numbers }) {
+interface Props {
+  numbers: number;
+}
+
+function RowNumbers({ numbers }: Props) {
   return <RowNumbersStyled>{numbers}</RowNumbersStyled>;
 }
 

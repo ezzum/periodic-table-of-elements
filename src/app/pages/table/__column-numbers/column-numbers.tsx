@@ -3,7 +3,11 @@ import ArrayOfNumber from '../../../array-of-number/array-of-number';
 
 import { ColumnNumbersStyled } from './column-numbers-styled';
 
-function ColumnNumbers({ numbers }) {
+interface Props {
+  numbers: number;
+}
+
+function ColumnNumbers({ numbers }: Props) {
   return <ColumnNumbersStyled>{numbers}</ColumnNumbersStyled>;
 }
 
