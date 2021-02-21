@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   ELEMENTS_LOAD,
   ELEMENT_CLICK,
@@ -7,7 +7,7 @@ import {
   HIDE_SPINNER,
   SHOW_SPINNER,
   SEARCH_ELEMENT,
-} from "./types";
+} from './types';
 
 export function showSpinner() {
   return {
@@ -25,9 +25,12 @@ export function ElementsLoad() {
   return async (dispatch) => {
     try {
       dispatch(showSpinner());
-      const url = "https://data-base-chem.herokuapp.com/table";
+      const url = 'https://data-base-chem.herokuapp.com/table';
       const response = await axios.get(url);
-      dispatch({ type: ELEMENTS_LOAD, value: response.data.elements });
+      const elements = response.data.elements.map((item) => {
+        return { ...item, active: false };
+      });
+      dispatch({ type: ELEMENTS_LOAD, value: elements });
       dispatch(hideSpinner());
     } catch (error) {
       return null;

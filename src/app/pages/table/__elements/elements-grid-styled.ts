@@ -4,6 +4,14 @@ const cellFontsColor = '#000';
 const cellColor = '#C4A35A';
 const activeCellColor = '#4f7f80';
 
+interface CellProps {
+  item: {
+    active: boolean;
+    row: number;
+    column: number;
+  };
+}
+
 const ElementsStyled = styled.div`
   width: 1222px;
   height: 747px;
@@ -14,7 +22,7 @@ const ElementsStyled = styled.div`
   grid-gap: 2px;
 `;
 
-const CellStyled = styled.div.attrs((props) => ({
+const CellStyled = styled.div.attrs((props: CellProps) => ({
   style: {
     backgroundColor: props.item.active ? activeCellColor : cellColor,
   },
@@ -26,7 +34,8 @@ const CellStyled = styled.div.attrs((props) => ({
   margin: 3px;
   cursor: pointer;
   text-decoration: none;
-  grid-area: ${(props) => props.item.row} / ${(props) => props.item.column};
+  grid-area: ${(props: CellProps) => props.item.row} /
+    ${(props) => props.item.column};
   transition: 0.2s;
   &:hover {
     transform: scale(1.1);
