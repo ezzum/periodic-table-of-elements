@@ -1,0 +1,25 @@
+.description {
+  width: 95%;
+}
+.exit-button {
+  margin-top: 20px;
+  float: right;
+}
+.infobox {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: #c5c5c5;
+}
+.tright {
+  clear: right;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+.mw-parser-output > a {
+  color: #3f2c2c;
+  &:hover {
+    color: rgb(168, 168, 168);
+  }
+}

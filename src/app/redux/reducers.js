@@ -6,8 +6,11 @@ import {
   HIDE_SPINNER,
   SHOW_SPINNER,
   SEARCH_ELEMENT,
-} from "./types";
-import { initialState } from "./initialState";
+  GET_PAGE_ID,
+  GET_PAGE_CONTENT,
+  CLEAR_DESCRIPTION,
+} from './types';
+import { initialState } from './initialState';
 
 export function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -24,7 +27,10 @@ export function rootReducer(state = initialState, action) {
     case ELEMENT_CLICK:
       return {
         ...state,
-        activeElement: action.value,
+        activeElement: {
+          ...state.activeElement,
+          name: action.value,
+        },
       };
     case FILTER_BUTTON_CLICK:
       const newActiveButton = {
@@ -56,7 +62,7 @@ export function rootReducer(state = initialState, action) {
       };
     case SEARCH_ELEMENT:
       const searchedElements = state.elements.map((item) => {
-        if (action.value === "") {
+        if (action.value === '') {
           return { ...item, active: false };
         }
         if (item.name.includes(action.value)) {
@@ -71,6 +77,34 @@ export function rootReducer(state = initialState, action) {
         ...state,
         elements: [...searchedElements],
       };
+    case GET_PAGE_ID:
+      return {
+        ...state,
+        activeElement: {
+          ...state.activeElement,
+          pageId: action.value,
+        },
+      };
+
+    case GET_PAGE_CONTENT:
+      return {
+        ...state,
+        activeElement: {
+          ...state.activeElement,
+          content: action.value,
+        },
+      };
+
+    case CLEAR_DESCRIPTION:
+      return {
+        ...state,
+        activeElement: {
+          ...state.activeElement,
+          pageId: 0,
+          content: '',
+        },
+      };
+
     default:
       return state;
   }
