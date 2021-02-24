@@ -5,7 +5,8 @@ const RowNumbersStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 0 10px;
+  font-weight: 600;
+  margin: 0 0.8rem;
 `;
 
 export { RowNumbersStyled };

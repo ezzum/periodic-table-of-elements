@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-const TableColor = '#E5E5DC';
-
 const TableStyled = styled.div`
-  margin-bottom: 15px;
-  background-color: ${TableColor};
+  margin: 0 1rem 1.5rem 1rem;
+  background-color: inherit;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto 74% auto;

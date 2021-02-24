@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
 export const ExitStyled = styled.button`
-  border: 1px solid #000;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 0.3rem;
+  padding: 0.8rem;
   text-decoration: none;
-  color: #000;
-  background-color: #a6d4fa;
+  color: #fff;
+  background-color: #829079;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;

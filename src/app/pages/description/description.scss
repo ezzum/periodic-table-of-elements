@@ -1,25 +1,31 @@
 .description {
-  width: 95%;
+  width: 75rem;
+}
+.link {
+  color: #086861;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+h1 {
+  &::first-letter {
+    text-transform: uppercase;
+  }
 }
 .exit-button {
-  margin-top: 20px;
+  margin-top: 1.3rem;
   float: right;
 }
 .infobox {
   float: right;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-left: 1.3rem;
+  margin-bottom: 1.3rem;
   background-color: #c5c5c5;
 }
 .tright {
   clear: right;
   float: right;
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-.mw-parser-output > a {
-  color: #3f2c2c;
-  &:hover {
-    color: rgb(168, 168, 168);
-  }
+  margin-left: 1.3rem;
+  margin-bottom: 1.3rem;
 }
