@@ -5,7 +5,7 @@ const appBorderColor = '#858580';
 
 const AppStyled = styled.div`
   width: 1300px;
-  height: 900px;
+  min-height: 900px;
   background-color: ${appColor};
   border: 2px solid ${appBorderColor};
   border-radius: 5px;

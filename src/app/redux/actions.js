@@ -7,6 +7,9 @@ import {
   HIDE_SPINNER,
   SHOW_SPINNER,
   SEARCH_ELEMENT,
+  GET_PAGE_ID,
+  GET_PAGE_CONTENT,
+  CLEAR_DESCRIPTION,
 } from './types';
 
 export function showSpinner() {
@@ -64,4 +67,67 @@ export function SearchElement(value) {
     type: SEARCH_ELEMENT,
     value,
   };
+}
+
+export function GetPageId(value) {
+  return async (dispatch) => {
+    try {
+      dispatch(showSpinner());
+      let url = 'https://ru.wikipedia.org/w/api.php?origin=*';
+      const props = {
+        action: 'query',
+        list: 'search',
+        srsearch: `${value} (элемент)`,
+        format: 'json',
+      };
+      Object.keys(props).forEach(function (key) {
+        url += '&' + key + '=' + props[key];
+      });
+      const response = await axios.get(url);
+      const id = response.data.query.search[0].pageid;
+      dispatch({ type: GET_PAGE_ID, value: id });
+    } catch (error) {
+      return null;
+    }
+  };
+}
+
+export function GetPageContent(pageId) {
+  return async (dispatch) => {
+    try {
+      let url = 'https://ru.wikipedia.org/w/api.php?origin=*';
+      const props = {
+        action: 'parse',
+        pageid: `${pageId}`,
+        prop: 'text',
+        format: 'json',
+      };
+      Object.keys(props).forEach(function (key) {
+        url += '&' + key + '=' + props[key];
+      });
+      const response = await axios.get(url);
+      const data = response.data.parse.text['*'];
+      const content = Parser(data);
+      dispatch({ type: GET_PAGE_CONTENT, value: content });
+      dispatch(hideSpinner());
+    } catch (error) {
+      return null;
+    }
+  };
+}
+
+export function clearDescription() {
+  return {
+    type: CLEAR_DESCRIPTION,
+  };
+}
+
+function Parser(data) {
+  return data
+    .replace(
+      /href="\/wiki/g,
+      'target="_blank" rel="noopener noreferrer" href="https://ru.wikipedia.org/wiki'
+    )
+    .replace(/<div class="hatnote.+>/g, '')
+    .replace(/<span class="mw-edit.+span>/g, '');
 }
