@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const cellFontsColor = '#000';
-const cellColor = '#C4A35A';
-const activeCellColor = '#4f7f80';
+const cellFontsColor = '#fff';
+const cellColor = '#829079';
+const activeCellColor = '#b9925e';
 
 interface CellProps {
   item: {
@@ -13,13 +13,11 @@ interface CellProps {
 }
 
 const ElementsStyled = styled.div`
-  width: 1222px;
-  height: 747px;
   grid-area: elements;
   display: grid;
   grid-template-rows: repeat(10, auto);
   grid-template-columns: repeat(18, auto);
-  grid-gap: 2px;
+  grid-gap: 0.3rem;
 `;
 
 const CellStyled = styled.div.attrs((props: CellProps) => ({
@@ -28,37 +26,46 @@ const CellStyled = styled.div.attrs((props: CellProps) => ({
   },
 }))`
   color: ${cellFontsColor};
-  width: 60px;
-  height: 75px;
+  width: 4.3rem;
+  height: 4.5rem;
+  border-radius: 0.3rem;
   background-color: ${cellColor};
-  margin: 3px;
   cursor: pointer;
   text-decoration: none;
   grid-area: ${(props: CellProps) => props.item.row} /
     ${(props) => props.item.column};
   transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   &:hover {
     transform: scale(1.1);
   }
 `;
 
-const Symbol = styled.div`
-  font-size: 14px;
+const Number = styled.div`
+  font-size: 1rem;
+  text-align: start;
+  margin: 0 0.3rem;
+`;
+
+const Symbol = styled(Number)`
+  font-size: 1rem;
   text-align: center;
 `;
 
-const Name = styled.div`
-  font-size: 12px;
+const Name = styled(Number)`
+  font-size: 0.7rem;
+  text-align: center;
+  margin: 0 auto;
+  &:first-letter {
+    text-transform: uppercase;
+  }
+`;
+
+const AtomicMass = styled(Number)`
+  font-size: 0.8rem;
   text-align: end;
-  margin-right: 5px;
-`;
-
-const AtomicMass = styled(Name)`
-  font-size: 14px;
-`;
-
-const Number = styled(Name)`
-  margin-top: 3px;
 `;
 
 export { ElementsStyled, CellStyled, Symbol, Number, Name, AtomicMass };

@@ -126,8 +126,10 @@ function Parser(data) {
   return data
     .replace(
       /href="\/wiki/g,
-      'target="_blank" rel="noopener noreferrer" href="https://ru.wikipedia.org/wiki'
+      'target="_blank" rel="noopener noreferrer" class="link" href="https://ru.wikipedia.org/wiki'
     )
+    .replace(/href="#/g, 'class="link" href="#')
+    .replace(/class="(ext|new)/g, 'class="link ext')
     .replace(/<div class="hatnote.+>/g, '')
     .replace(/<span class="mw-edit.+span>/g, '');
 }
