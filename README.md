@@ -9,6 +9,7 @@ Technology stack
 6. TypeScript
 7. Styled Component
 
+
 Quick start
 1. Clone this repository
 2. cd periodic-table-of-elements
